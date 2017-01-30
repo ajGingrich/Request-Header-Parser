@@ -19,8 +19,10 @@ app.get('/', function(req, res) {
     userInfo.language = JSON.stringify(req.headers["accept-language"]).split(",")[0].slice(1);
     userInfo.os = JSON.stringify(req.headers["user-agent"]).match(/\(([^)]+)\)/)[1];
 
-    //res.render('index')
-    res.send(userInfo);
+    res.render('index', {
+        userInfo: userInfo
+    });
+    //res.send(userInfo);
 });
 
 //var title = "Who am I?";
